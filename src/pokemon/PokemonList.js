@@ -2,20 +2,7 @@ import React, { useContext } from 'react';
 import { PokemonContext } from './PokemonContext';
 
 export const PokemonList = () => {
-    const {
-        pokemons,
-        setPokemons,
-        capturedPokemons,
-        setCapturedPokemons
-    } = useContext(PokemonContext);
-
-    const removePokemonFromList = (removedPokemon) => 
-    pokemons.filter(pokemon => pokemon !== removedPokemon);
-
-    const capture = (pokemon) => () => {
-        setCapturedPokemons([...capturedPokemons, pokemon]);
-        setPokemons(removePokemonFromList(pokemon));
-    };
+    const { pokemons, capture } = useContext(PokemonContext);
 
     return (
         <div className="pokemon-list">
